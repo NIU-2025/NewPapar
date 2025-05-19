@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="stylesheet" href="/static/css/user.css">
+    <script src="/static/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function (){
+            var $name=$('.user_login'),
+                $pwd=$('.pwd_login'),
+                $sub=$('.sub_reg'),
+                $err=$('#err_login');
+            $sub.click(function (){
+                var $sVal01 = $name.val()
+                var $sVal02 = $pwd.val()
+
+                //判断输入数据是否完整
+                if ($sVal01 == ''){
+                    alert("用户名不能为空")
+                    return
+                }
+                if ($sVal02==''){
+                    alert("密码不能为空")
+                    return
+                }
+                /*$err.hide()*/
+            })
+        })
+    </script>
+</head>
+<body>
+<div  class="div_login">
+    <img src="/static/img/login.jpeg" class="img_login">
+    <form action="/register" method="post" class="form_login">
+        <h1 class="h_login">用户注册</h1>
+        <input type="text" placeholder="用户名" class="user_login" name="username">
+        <input type="password" placeholder="密码" class="pwd_login" name="password">
+        <input type="submit" value="注册" class="sub_reg">
+    </form>
+</div>
+</body>
+</html>

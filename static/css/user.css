@@ -1,0 +1,97 @@
+.div_login{
+
+}
+
+.img_login{
+    position: absolute;
+    width: 1500px;
+    height: 700px;
+}
+
+.form_login{
+    width: 500px;
+    height: 500px;
+    margin: 150px auto;
+    margin-top: 150px;
+    margin-left: 500px;
+    background: ghostwhite;
+    position: absolute;
+}
+
+.h_login{
+    color: white;
+    margin: 0px 20px 62px 0px;
+    padding-top: 50px;
+    font-width: normal;
+    font-family: 'Microsoft YaHei';
+    background: darkseagreen;
+    width: 500px;
+    height: 100px;
+    text-align: center;
+}
+
+.user_login{
+    width: 400px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: 50px;
+}
+
+.pwd_login{
+    width: 400px;
+    height: 40px;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+
+.div_box{
+    margin-top: 20px;
+}
+
+.cbox{
+    width: 20px;
+    height: 20px;
+}
+
+.cbox_user{
+    font-size: 20px;
+}
+
+.sub_login{
+    width: 502px;
+    height: 100px;
+    background: darkseagreen;
+    color: white;
+    font-size: 30px;
+    margin-top: 27px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.sub_reg{
+    width: 502px;
+    height: 120px;
+    background: darkseagreen;
+    color: white;
+    font-size: 30px;
+    margin-top: 57px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.reg_login{
+    width: 30px;
+    height: 30px;
+    background: darkseagreen;
+    color: black;
+   margin-left: 320px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.err_login{
+    width: 500px;
+    height: 10px;
+    color: red;
+    font-size: 15px;
+}

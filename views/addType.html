@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <link rel="stylesheet" href="/static/css/banner.css">
+  <link rel="stylesheet" href="/static/css/addType.css">
+</head>
+<body>
+<div class="banner_title">
+  <img src="/static/img/banner_title.jpg" class="banner_title_img">
+  <h1 class="banner_h1">文章发布系统</h1>
+  <p class="banner_exit"><a href="/logout">退出</a></p>
+</div>
+
+<div class="banner_left">
+  <img src="/static/img/banner_left.jpg" class="banner_left_img">
+  <img src="/static/img/head_photo.jpg" class="head_photo_img">
+  <p class="banner_left_p">欢迎您 <span>{{.name}}</span></p>
+  <p><a href="#" class="banner_left_mang">文章管理</a></p>
+  <p><a href="/showArticleList" class="banner_left_sim">文章列表</a></p>
+  <p><a href="/addArticle" class="banner_left_sim">添加文章</a></p>
+  <p><a href="/addType" class="banner_left_sim">添加分类</a></p>
+</div>
+
+<div class="banner_center">
+  <p class="banner_center_p">当前位置:文章管理/文章列表/添加分类</p>
+  <table class="addType_table">
+    <tr>
+      <th>id</th>
+      <th>类别名称</th>
+      <th>管理操作</th>
+    </tr>
+
+    {{range .types}}
+    <tr>
+      <th>{{.Id}}</th>
+      <th>{{.TypeName}}</th>
+      <th><a href="">删除</a></th>
+    </tr>
+    {{end}}
+
+    <tr>
+      <td colspan="3">
+        <form action="/addType" method="post" class="addType_table_form">
+          <input type="text" placeholder="添加分类" name="typeName">
+          <input type="submit" value="提交">
+        </form>
+      </td>
+    </tr>
+  </table>
+  <p class="addType_err">{{.nonull}}</p>
+</div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>网站首页</title>
+    <link rel="stylesheet" href="/static/css/banner.css">
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <!--<script>
+        /*$(function (){
+            var count =1
+            var $prePage = $('#prePage');
+            var $postPage =$('#postPage');
+            var $pagecount =$('#pagecount')
+            var s = $('#pagecount').text()
+            var strsum =s.substring(7,8)
+            var sum = parseInt(strsum,10)
+
+                $postPage.click(function () {
+                    var $postPagea = $('#postPagea');
+                    $postPagea.prop({'href': '?pageIndex=' + count * 5})
+                    count++
+                })
+
+            $prePage.click(function (){
+              var $prePagea = $('#prePagea');
+              /!*var sid = $a.prop('id')
+              alert(sid)*!/
+                $prePagea.prop({'href':'?pageIndex='})
+            })
+
+        })*/
+    </script>-->
+    <script>
+        $(function (){
+            var $del = $('#del')
+            /*删除文章时提示*/
+            $del.click(function (){
+                if (!confirm("是否确认删除")){return false}
+            })
+
+            /*在选择文章类型时，给后台发请求数据*/
+            var $select = $('#select')
+            $select.change(function (){
+                $('#formSub').submit()
+            })
+        })
+    </script>
+</head>
+<body>
+    <div class="banner_title">
+        <img src="/static/img/banner_title.jpg" class="banner_title_img">
+        <h1 class="banner_h1">文章发布系统</h1>
+        <p class="banner_exit"><a href="/logout">退出</a></p>
+    </div>
+
+    <div class="banner_left">
+        <img src="/static/img/banner_left.jpg" class="banner_left_img">
+        <img src="/static/img/head_photo.jpg" class="head_photo_img">
+        <p class="banner_left_p">欢迎您 <span>{{.name}}</span></p>
+        <p><a href="#" class="banner_left_mang">文章管理</a></p>
+        <p><a href="/showAricleList" class="banner_left_sim">文章列表</a></p>
+        <p><a href="/addArticle" class="banner_left_sim">添加文章</a></p>
+        <p><a href="/addType" class="banner_left_sim">添加分类</a></p>
+    </div>
+
+    <div class="banner_center">
+        <p class="banner_center_p">当前位置:文章管理/文章列表</p>
+        <form action="/showArticleList" method="get"  id="formSub" class="banner_center_form" enctype="multipart/form-data">
+            <label>请选择文章分类:</label>
+            <select name="select" id="select" class="banner_center_select">
+                    {{range .types}}
+                        {{if compare .TypeName $.typeName}}
+                            <option selected="true">{{.TypeName}}</option>
+                        {{else}}
+                            <option>{{.TypeName}}</option>
+                         {{end}}
+                    {{end}}
+            </select>
+        </form>
+
+        <table class="banner_center_table">
+            <tr>
+                <th width="43%">文章标题</th>
+                <th width="10%">文章内容</th>
+                <th width="16%">添加时间</th>
+                <th width="7%">阅读量</th>
+                <th width="7%">删除</th>
+                <th width="7%">编辑</th>
+                <th width="10%">文章类型</th>
+            </tr>
+
+            {{range $index ,$val:=.articles}}
+            <tr>
+                <th>{{$val.ArtiName}}</th>
+                <th><a href="/showArticleDetail?articleId={{$val.Id}}">查看详情</a></th>
+                <th>{{$val.ArtiTime}}</th>
+                <th>{{$val.Acount}}</th>
+                <th><a href="/deleteArticle?articleId={{$val.Id}}" id="del">删除</a></th>
+                <th><a href="/updataArticle?articleId={{$val.Id}}">编辑</a></th>
+                <th>{{$val.ArticleType.TypeName}}</th>
+            </tr>
+            {{end}}
+        </table>
+
+        <ul class="banner_center_ul">
+            <li><a href="?pageIndex=1"><input type="submit" value="首页"></a></li>
+            <li><a href="?pageIndex={{.pageIndex | prepage}}" id="prePagea"><input type="submit" value="上一页"></a></li>
+            <li><a href="?pageIndex={{nextpage .pageIndex .pageCount}}" id="postPagea"><input type="submit" value="下一页"></a></li>
+            <li><a href="?pageIndex={{.pageCount}}"><input type="submit" value="末页"></a></li>
+            <li class="banner_center_ul_li_last">共{{.count}}条记录/共{{.pageCount}}页/当前{{.pageIndex}}页</li>
+        </ul>
+    </div>
+</body>
+</html>

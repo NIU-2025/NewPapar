@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+  <link rel="stylesheet" href="/static/css/banner.css">
+  <link rel="stylesheet" href="/static/css/addArticle.css">
+  <script src="/static/js/jquery-3.7.1.min.js"></script>
+  <script>
+    $(function (){
+      var  $name= ('#name'),
+              $content= ('#content'),
+              $submit = ('#submit');
+      $submit.click(function (){
+        var $namedata = $name.val()
+        var  $contentdata=$content.val()
+        if ($namedata == ''){
+          alert("文章标题不能为空")
+          return
+        }
+        if ($contentdata == ''){
+          alert("文章内容不能为空")
+          return
+        }
+      })
+    })
+  </script>
+</head>
+
+<body>
+<div class="banner_title">
+  <img src="/static/img/banner_title.jpg" class="banner_title_img">
+  <h1 class="banner_h1">文章发布系统</h1>
+  <p class="banner_exit"><a href="/logout">退出</a></p>
+</div>
+
+<div class="banner_left">
+  <img src="/static/img/banner_left.jpg" class="banner_left_img">
+  <img src="/static/img/head_photo.jpg" class="head_photo_img">
+  <p class="banner_left_p">欢迎您 <span>{{.name}}</span></p>
+  <p><a href="/showArticleList" class="banner_left_mang">文章管理</a></p>
+  <p><a href="#" class="banner_left_sim">文章列表</a></p>
+  <p><a href="/addArticle" class="banner_left_sim">添加文章</a></p>
+  <p><a href="/addType" class="banner_left_sim">添加分类</a></p>
+</div>
+
+  <div class="banner_center">
+    <p class="banner_center_p">当前位置:文章管理/添加文章</p>
+    <p class="addArticle_add">添加文章</p>
+    <form action="/addArticle" method="post" enctype="multipart/form-data">
+      <p class="addArticle_common">文章标题:<input type="text" name="article_title_name" id="name"></p>
+      <p class="addArticle_common">文章类型:
+        <select name="select">
+          {{range .types}}
+          <option>{{.TypeName}}</option>
+          {{end}}
+        </select>
+      </p>
+      <p class="addArticle_content">文章内容:<textarea class="addArticle_content_textarea" name="article_content" id="content"></textarea></p>
+      <p class="addArticle_common">上传图片:
+        <input type="file" name="uploadname" class="addArticle_addimg">
+      </p>
+      <p class="addArticle_errmsg">{{.errmsg}}</p>
+      <div class="addArticle_submit_div">
+      <p class="addArticle_submit"><input type="submit" value="添加" id="submit"></p>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

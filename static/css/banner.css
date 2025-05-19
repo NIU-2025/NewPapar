@@ -1,0 +1,153 @@
+body{
+    margin: 0;
+}
+
+.banner_title_img{
+    position: absolute;
+    width: 1520px;
+    height: 100px;
+    margin-left: 0;
+}
+
+.banner_h1{
+    width: 300px;
+    height: 80px;
+    position: absolute;
+    color: white;
+}
+
+.banner_exit{
+    width: 100px;
+    height: 50px;
+    background: darkseagreen;
+    position: absolute;
+    font-size: 30px;
+    margin-left: 1400px;
+    text-align: center;
+    color: white;
+}
+.banner_exit a{
+    text-decoration: none;
+}
+
+.banner_left{
+    width: 290px;
+    height: 605px;
+    padding-top: 100px;
+    position: relative;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.banner_left_img{
+    width: 290px;
+    height: 620px;
+    padding: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.head_photo_img{
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    margin-left: -180px;
+    margin-top:60px ;
+}
+
+.banner_left_p{
+    margin-top: -470px;
+    font-size: 25px;
+    color: black;
+    padding-left: 80px;
+}
+
+.banner_left_p span{
+    color: blue;
+    font-weight: bold;
+}
+
+.banner_left_mang{
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 20px;
+}
+
+.banner_left_sim{
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+    padding-left: 40px;
+    line-height: 50px;
+}
+
+.banner_center{
+    width: 1230px;
+    height: 620px;
+    margin-top: -620px;
+    margin-left: 290px;
+}
+
+.banner_center_p{
+    font-size: 20px;
+    width: 1200px;
+    height: 35px;
+    background: darkseagreen;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.banner_center_form{
+    font-size: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.banner_center_select{
+    width: 120px;
+    height: 40px;
+}
+
+.banner_center_select option{
+    text-align: center;
+}
+
+.banner_center_table{
+    width: 1200px;
+    height: 100px;
+    font-size: 20px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.banner_center_table th{
+    border:1px solid black;
+}
+
+.banner_center_table a{
+    text-decoration: none;
+    color: black;
+}
+
+.banner_center_ul{
+    font-size: 20px;
+    list-style: none;
+    margin-left: 410px;
+    margin-top: 30px;
+}
+.banner_center_ul input{
+    text-decoration: none;
+    float: left;
+    width: 60px;
+    height: 40px;
+    margin-left: 10px;
+    background: white;
+}
+
+.banner_center_ul_li_last{
+    padding-top: 5px;
+    margin-left: 300px;
+}

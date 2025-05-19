@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆页面</title>
+    <link rel="stylesheet" href="/static/css/user.css">
+    <script src="/static/js/jquery-3.7.1.min.js"></script>
+    <script>
+        $(function (){
+            var $name=$('.user_login'),
+                $pwd=$('.pwd_login'),
+                $sub=$('.sub_login'),
+                $err=$('#err_login');
+
+            $sub.click(function (){
+                var $sVal01 = $name.val()
+                var $sVal02 = $pwd.val()
+
+                //判断输入数据是否完整
+                if ($sVal01 == ''){
+                    alert("用户名不能为空")
+                    return
+                }
+                if ($sVal02==''){
+                    alert("密码不能为空")
+                    return
+                }
+                /*$err.hide()*/
+            })
+        })
+    </script>
+</head>
+<body>
+<div  class="div_login">
+    <img src="/static/img/login.jpeg" class="img_login">
+    <form action="/login" method="post" class="form_login">
+        <h1 class="h_login">用户登陆</h1>
+        <input type="text" placeholder="用户名" class="user_login" name="username" value="{{.userName}}">
+        <input type="password" placeholder="密码" class="pwd_login" name="password">
+       <div class="div_box">
+           <input type="checkbox" class="cbox" name="remember" {{.checked}}><label class="cbox_user">记住用户名</label>
+           <a href="/register" class="reg_login">注册</a>
+           <!--<input type="submit" value="注册" class="reg_login">-->
+       </div>
+        <p id="err_login" class="err_login">{{.err_login}}</p>
+        <input type="submit" value="登陆" class="sub_login">
+    </form>
+</div>
+</body>
+</html>
